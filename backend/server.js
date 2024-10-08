@@ -16,7 +16,7 @@ app.get("/blog", (req, res) => {
 
 // Post //
 app.post("/blog", (req, res) => {
-    const id = users.length + 1;
+    const id        = users.length + 1;
     const name      = req.body.name;
     const title     = req.body.title;
     const content   = req.body.content;
@@ -54,6 +54,62 @@ app.delete("/blog/:id", (req, res) => {
 //=== Delete ===//\
 
 // Blog //
+
+// ============================================================================================================================================ //
+// ============================================================================================================================================ //
+// ============================================================================================================================================ //
+// ============================================================================================================================================ //
+// ============================================================================================================================================ //
+// ============================================================================================================================================ //
+
+// sign and login //
+
+// login
+app.post('/signIn', (req, res) => {
+
+    const email     = req.body.email;
+    const password  = req.body.password;
+
+    if (!email || !password) {
+        res.send("Email and password are required");
+    };
+
+    const user = users.find(user => user.email == email);
+
+
+    res.json(userId = user.id);
+});
+
+// SignUp
+app.post("/signUp", (req, res) => {
+
+    const username      = req.body.username;
+    const email         = req.body.email;
+    const password      = req.body.password;
+
+
+
+    if (username.length > 5 && /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/.test(email)  && password.length > 8) {
+        res.send("Successful registration")
+    }
+
+
+    const newUser = {
+        id: users.length + 1,
+        username,
+        email,
+        password
+    };
+
+
+    users.push(newUser);
+
+
+    res.json(userId = newUser.id);
+});
+
+// sign and login //
+
 
 app.listen(port, () =>{
     console.log("Ok");
