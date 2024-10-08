@@ -62,9 +62,9 @@ app.delete("/blog/:id", (req, res) => {
 // ============================================================================================================================================ //
 // ============================================================================================================================================ //
 
-// sign and login //
+// Sign And Login //
 
-// login
+// Login
 app.post('/signIn', (req, res) => {
 
     const email     = req.body.email;
@@ -108,7 +108,7 @@ app.post("/signUp", (req, res) => {
     res.json(userId = newUser.id);
 });
 
-// sign and login //
+// Sign And Login //
 
 
 app.listen(port, () =>{
